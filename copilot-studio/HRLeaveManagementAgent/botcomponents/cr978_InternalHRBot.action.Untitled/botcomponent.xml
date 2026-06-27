@@ -1,0 +1,10 @@
+<botcomponent schemaname="cr978_InternalHRBot.action.Untitled">
+  <componenttype>9</componenttype>
+  <iscustomizable>0</iscustomizable>
+  <name>Untitled</name>
+  <parentbotid>
+    <schemaname>cr978_InternalHRBot</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

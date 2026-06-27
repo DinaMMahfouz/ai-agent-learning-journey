@@ -1,0 +1,50 @@
+kind: AdaptiveDialog
+modelDescription: |-
+  Vacation Booking
+  Adding a vacation
+  Saving a vacation
+  Booking PTO
+beginDialog:
+  kind: OnRecognizedIntent
+  id: main
+  intent: {}
+  actions:
+    - kind: Question
+      id: question_DRQiEe
+      interruptionPolicy:
+        allowInterruption: true
+
+      variable: init:Topic.Var1
+      prompt: Great. I'm glad you're taking a vacation. Please enter your start date, end date, and notes if any.
+      entity: StringPrebuiltEntity
+
+    - kind: SetVariable
+      id: set_StartDate
+      variable: Topic.StartDate
+      value: =First(MatchAll(Topic.Var1, "\d{1,2}[\/\-]\d{1,2}[\/\-]\d{4}")).FullMatch
+
+    - kind: SetVariable
+      id: set_EndDate
+      variable: Topic.EndDate
+      value: =Last(MatchAll(Topic.Var1, "\d{1,2}[\/\-]\d{1,2}[\/\-]\d{4}")).FullMatch
+
+    - kind: SetVariable
+      id: set_Notes
+      variable: Topic.Notes
+      value: =Trim(Substitute(Substitute(Substitute(Substitute(Topic.Var1, Topic.StartDate, ""), Topic.EndDate, ""), "from", ""), "to", ""))
+
+    - kind: BeginDialog
+      id: Xv2ya0
+      input:
+        binding:
+          text_1: =Topic.StartDate
+          text_2: =Topic.EndDate
+          text_3: =Topic.Notes
+
+      dialog: cr978_InternalHRBot.action.Untitled
+      output:
+        binding:
+          output: Topic.output
+
+inputType: {}
+outputType: {}

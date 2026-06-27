@@ -1,0 +1,142 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_excelonlinebusiness": {
+        "api": {
+          "name": "shared_excelonlinebusiness"
+        },
+        "connection": {
+          "connectionReferenceLogicalName": "cr978_TestAgent.shared_excelonlinebusiness.shared-excelonlinebu-02f54ced-bf15-48d5-b2a2-e5f5244d493f"
+        },
+        "runtimeSource": "invoker"
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "type": "Request",
+          "kind": "Skills",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "description": "Please enter your email",
+                  "title": "Email",
+                  "type": "string",
+                  "x-ms-content-hint": "TEXT",
+                  "x-ms-dynamically-added": true
+                },
+                "text_1": {
+                  "description": "Please enter the start date of your vacation",
+                  "title": "Start Date",
+                  "type": "string",
+                  "x-ms-content-hint": "TEXT",
+                  "x-ms-dynamically-added": true
+                },
+                "text_2": {
+                  "description": "Please enter the end date of your vacation",
+                  "title": "End Date",
+                  "type": "string",
+                  "x-ms-content-hint": "TEXT",
+                  "x-ms-dynamically-added": true
+                },
+                "text_3": {
+                  "description": "Please enter any notes about your vacation ",
+                  "title": "Notes",
+                  "type": "string",
+                  "x-ms-content-hint": "TEXT",
+                  "x-ms-dynamically-added": true
+                }
+              },
+              "required": [
+                "text",
+                "text_1",
+                "text_2",
+                "text_3"
+              ]
+            }
+          },
+          "metadata": {
+            "operationMetadataId": "b8f61c18-7224-4f8a-9c5f-72fbce5df764"
+          }
+        }
+      },
+      "actions": {
+        "Respond_to_the_agent": {
+          "type": "Response",
+          "kind": "Skills",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "output": {
+                  "title": "Output",
+                  "description": "",
+                  "type": "string",
+                  "x-ms-content-hint": "TEXT",
+                  "x-ms-dynamically-added": true
+                }
+              },
+              "additionalProperties": {}
+            },
+            "statusCode": 200,
+            "body": {
+              "output": "Your vacation has been booked into the system. please await approval"
+            }
+          },
+          "runAfter": {
+            "Add_a_row_into_a_table": [
+              "SUCCEEDED"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "81c94f73-dd52-465c-ad3b-a4686da63cc3"
+          }
+        },
+        "Add_a_row_into_a_table": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "source": "me",
+              "drive": "b!jfh_F3EW6UCn32pdgKk3Miga48nqayBMo3bos5WBWJuZjTZh3rMrQaku8Q5v1Szb",
+              "file": "014FM46BQOTIYRQX3QXND2LBFN7624GK74",
+              "table": "{14DDCE98-9B04-4A28-B29B-82576F2C34AC}",
+              "item/Email": "@triggerBody()?['text']",
+              "item/Start Date": "@triggerBody()?['text_1']",
+              "item/End Date": "@triggerBody()?['text_2']",
+              "item/Notes": "@triggerBody()?['text_3']"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_excelonlinebusiness",
+              "operationId": "AddRowV2",
+              "connectionName": "shared_excelonlinebusiness"
+            }
+          },
+          "runAfter": {},
+          "metadata": {
+            "014FM46BU6GOGH5YAZ7VCLCG7IMMPTD75Z": "/Desktop/Vacation Bookings.xlsx",
+            "014FM46BQ55QN3J5Y7A5GJD46KKA2OC7HM": "/Desktop/ChatBot/Copilot Studio/Vacation Bookings.xlsx",
+            "014FM46BQOTIYRQX3QXND2LBFN7624GK74": "/Desktop/ChatBot/Copilot Studio/HR Internal.xlsx"
+          }
+        }
+      },
+      "outputs": {},
+      "description": "When an agent calls the flow and send back a response."
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

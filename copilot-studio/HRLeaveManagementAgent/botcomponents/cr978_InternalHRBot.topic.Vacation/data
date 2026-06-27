@@ -1,0 +1,50 @@
+kind: AdaptiveDialog
+modelDescription: |-
+  Vacation days
+  vacation time off
+  PTO
+beginDialog:
+  kind: OnRecognizedIntent
+  id: main
+  intent: {}
+  actions:
+    - kind: SearchAndSummarizeContent
+      id: 1B9NcM
+      userInput: =System.Activity.Text
+      fileSearchDataSource:
+        searchFilesMode:
+          kind: DoNotSearchFiles
+
+      knowledgeSources:
+        kind: SearchSpecificKnowledgeSources
+        knowledgeSources:
+          - cr978_InternalHRBot.topic.vacation_policydocx_UiL_l2jOF7cJnS3dgwkWj
+          - cr978_InternalHRBot.topic.employee_benefits_policydocx_RS_nPLolJOOuNMJckhBdz
+
+    - kind: Question
+      id: question_oranHT
+      interruptionPolicy:
+        allowInterruption: true
+
+      variable: init:Topic.Var1
+      prompt: Do you want to book a vacation?
+      entity:
+        kind: EmbeddedEntity
+        definition:
+          kind: ClosedListEntity
+          items:
+            - id: Yes
+              displayName: Yes
+
+    - kind: ConditionGroup
+      id: conditionGroup_7eNkYp
+      conditions:
+        - id: conditionItem_bQSpzC
+          condition: =Topic.Var1 = 'cr978_InternalHRBot.topic.Vacation.main.question_oranHT'.Yes
+          actions:
+            - kind: BeginDialog
+              id: aWveR5
+              dialog: cr978_InternalHRBot.topic.Bookavacation
+
+inputType: {}
+outputType: {}

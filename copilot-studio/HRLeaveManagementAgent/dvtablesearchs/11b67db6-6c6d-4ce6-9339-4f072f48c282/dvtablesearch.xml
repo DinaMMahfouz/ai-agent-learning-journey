@@ -1,0 +1,29 @@
+<dvtablesearch dvtablesearchid="11b67db6-6c6d-4ce6-9339-4f072f48c282">
+  <connectionreference>
+    <connectionreferencelogicalname>cr978_InternalHRBot.cr.QvjTlkvK</connectionreferencelogicalname>
+  </connectionreference>
+  <iscustomizable>0</iscustomizable>
+  <knowledgeconfig>{
+  "$kind": "IngestionBasedGraphSearchConfiguration",
+  "driveItems": [
+    {
+      "$kind": "GraphDriveItemSyncDetails",
+      "displayName": "employee_benefits_policy.docx",
+      "webUrl": "https://sididentity-my.sharepoint.com/personal/dina_mahfouz_securid_com/Documents/Desktop/ChatBot/Copilot%20Studio/Section%2B10%2B-%2BResources/employee_benefits_policy.docx",
+      "driveId": "",
+      "itemId": "014FM46BSW6SD2I7RHAVC24QTRSNUULHBY",
+      "sharepointIds": {
+        "$kind": "SharepointIds",
+        "webId": "c9e31a28-6bea-4c20-a376-e8b39581589b",
+        "listId": "61368d99-b3de-412b-a92e-f10e6fd52cdb",
+        "siteId": "177ff88d-1671-40e9-a7df-6a5d80a93732",
+        "siteUrl": "https://sididentity-my.sharepoint.com/personal/dina_mahfouz_securid_com"
+      }
+    }
+  ]
+}</knowledgeconfig>
+  <name>employee_benefits_policydocx_VlwsKlxuxXk6_S29xIq2W</name>
+  <searchtype>1</searchtype>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</dvtablesearch>

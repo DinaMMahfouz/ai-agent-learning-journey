@@ -1,0 +1,10 @@
+<botcomponent schemaname="cr978_InternalHRBot.gpt.default">
+  <componenttype>15</componenttype>
+  <iscustomizable>0</iscustomizable>
+  <name>Internal HR Bot</name>
+  <parentbotid>
+    <schemaname>cr978_InternalHRBot</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

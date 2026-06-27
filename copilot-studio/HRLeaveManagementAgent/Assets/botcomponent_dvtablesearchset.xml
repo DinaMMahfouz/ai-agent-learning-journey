@@ -1,0 +1,8 @@
+<botcomponent_dvtablesearchset>
+  <botcomponent_dvtablesearch botcomponentid.schemaname="cr978_InternalHRBot.topic.employee_benefits_policydocx_RS_nPLolJOOuNMJckhBdz" dvtablesearchid.dvtablesearchid="11b67db6-6c6d-4ce6-9339-4f072f48c282">
+    <iscustomizable>1</iscustomizable>
+  </botcomponent_dvtablesearch>
+  <botcomponent_dvtablesearch botcomponentid.schemaname="cr978_InternalHRBot.topic.vacation_policydocx_UiL_l2jOF7cJnS3dgwkWj" dvtablesearchid.dvtablesearchid="817ea992-2bf9-4e55-af08-cb683b2a3091">
+    <iscustomizable>1</iscustomizable>
+  </botcomponent_dvtablesearch>
+</botcomponent_dvtablesearchset>

@@ -1,0 +1,20 @@
+kind: TaskDialog
+inputs:
+  - kind: ManualTaskInput
+    propertyName: text
+    value: =System.User.Email
+
+modelDisplayName: HR Internal Flow
+modelDescription: HR Internal Flow
+outputs:
+  - propertyName: output
+
+action:
+  kind: InvokeFlowTaskAction
+  flowId: 14bd7058-8176-969c-82cb-5fbff7bb0dd0
+  connectionProperties:
+    $kind: ConnectionProperties
+    diagnostics:
+    mode: Invoker
+
+outputMode: All

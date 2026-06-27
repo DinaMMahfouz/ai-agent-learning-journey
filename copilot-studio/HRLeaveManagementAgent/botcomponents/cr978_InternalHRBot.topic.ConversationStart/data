@@ -1,0 +1,12 @@
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnConversationStart
+  id: main
+  actions:
+    - kind: SendActivity
+      id: sendMessage_M0LuhV
+      activity:
+        text:
+          - Hello, I'm the Internal HR Bot, a virtual assistant. I am here to answer all your questions on vacation and other leave policies. Although I am smart, I may not always be right (currently in Beta mode). Please talk to an HR professional if you have any doubts.
+        speak:
+          - Hello and thank you for calling {System.Bot.Name}, powered by generative AI. How may I help you today?
